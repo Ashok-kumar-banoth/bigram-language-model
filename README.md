@@ -24,3 +24,95 @@ A screenshot of the generated text output is included in this repository.
 
 ## Conclusion
 This project demonstrates how a simple statistical language model can learn character transition probabilities and generate text without understanding meaning or context.
+
+# GPT Transformer (Decoder-Only) — From Scratch
+
+This project implements a **decoder-only GPT-style Transformer model** from scratch using **PyTorch**.  
+The goal of the project is to understand and implement the **core architecture behind modern large language models** such as GPT, focusing on **self-attention, transformer blocks, and autoregressive text generation**.
+
+This implementation is **character-level**, meaning the model learns to predict the next character given a sequence of previous characters.
+
+---
+
+## Project Overview
+
+The model is built incrementally starting from raw text data and includes:
+
+- Character-level tokenization
+- Masked self-attention (causal attention)
+- Multi-head attention
+- Feed-forward neural networks
+- Transformer blocks with residual connections
+- Positional embeddings
+- Autoregressive text generation
+
+The final output is a working GPT-style model that can generate readable English text after training.
+
+---
+
+## Model Architecture
+
+The architecture follows a **decoder-only Transformer**, consisting of:
+
+1. **Token Embedding Layer**  
+   Converts characters into dense vectors.
+
+2. **Positional Embedding Layer**  
+   Adds positional information so the model understands the order of characters.
+
+3. **Transformer Blocks (Repeated Layers)**  
+   Each block contains:
+   - Multi-head masked self-attention
+   - Feed-forward neural network
+   - Layer normalization
+   - Residual (skip) connections
+
+4. **Language Modeling Head**  
+   Projects the transformer output to vocabulary size for next-character prediction.
+
+The model is trained using **cross-entropy loss**.
+
+---
+
+## Training Details
+
+- **Tokenization**: Character-level  
+- **Context length (block size)**: 64  
+- **Batch size**: 32  
+- **Embedding size**: 128  
+- **Number of heads**: 4  
+- **Number of layers**: 4  
+- **Optimizer**: AdamW  
+- **Learning rate**: 3e-4  
+- **Training iterations**: ~3000  
+
+During training, the model learns to predict the **next character** given a sequence of previous characters.
+
+---
+
+## Results
+
+- Training loss decreases steadily, demonstrating successful learning.
+- Final loss reaches a very low value due to the small dataset.
+- The trained model generates:
+  - Correct spelling
+  - Basic grammar
+  - Coherent AI-related sentences
+
+Screenshots of:
+- Training loss
+- Generated sample text  
+
+are included in the `screenshots/` folder.
+
+---
+
+## How to Run the Code
+
+### Requirements
+- Python 3.8+
+- PyTorch
+
+### Run the model
+```bash
+python gpt.py
