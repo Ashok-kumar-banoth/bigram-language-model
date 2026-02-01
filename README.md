@@ -25,7 +25,7 @@ A screenshot of the generated text output is included in this repository.
 ## Conclusion
 This project demonstrates how a simple statistical language model can learn character transition probabilities and generate text without understanding meaning or context.
 
-# GPT Transformer (Decoder-Only) — From Scratch
+# GPT Transformer (Decoder-Only) — From Scratch - Endterm 
 
 This project implements a **decoder-only GPT-style Transformer model** from scratch using **PyTorch**.  
 The goal of the project is to understand and implement the **core architecture behind modern large language models** such as GPT, focusing on **self-attention, transformer blocks, and autoregressive text generation**.
